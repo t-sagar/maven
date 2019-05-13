@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
     <localRepository/>
     <interactiveMode/>
     <usePluginRegistry/>
@@ -13,7 +12,7 @@
     <servers>
         <!-- Sears Artifactory -->
         <!-- If you've never used Artifactory before, you will need to login to ensure you
-			have access.  If you do not, request it through appropriate channels. 
+            have access.  If you do not, request it through appropriate channels. 
             Hasn't been determined if developers will need supply credentials for read access.
 		-->
         <server>
@@ -25,10 +24,10 @@
 
         <!-- Sears Anypoint Exchange Repository -->
         <!-- This is only for deployments to exchange.  It is not needed for building.
-				Get access token for password by logging into Anypoint Platform with build user
-				and hitting this URL: https://anypoint.mulesoft.com/accounts/api/profile.
-				See https://docs.mulesoft.com/anypoint-exchange/to-publish-assets-maven
-			-->
+            Get access token for password by logging into Anypoint Platform with build user
+            and hitting this URL: https://anypoint.mulesoft.com/accounts/api/profile.
+            See https://docs.mulesoft.com/anypoint-exchange/to-publish-assets-maven
+        -->
         <server>
             <id>Exchange</id>
             <username>~~~Token~~~</username>
@@ -47,50 +46,44 @@
                 <jdk>1.8</jdk>
             </activation>
             <properties>
-				<!-- project -->
-				<sears.organization.name>Sears Home Services</sears.organization.name>
-				<sears.organization.url>https://www.searshomeservices.com</sears.organization.url>
+                <!-- project -->
+                <sears.organization.name>Sears Home Services</sears.organization.name>
+                <sears.organization.url>https://www.searshomeservices.com</sears.organization.url>
 
-				<!-- scm -->
-				<scm.git>scm:git:https://github.com/searshomeservices-mulesoft</scm.git>
+                <!-- scm -->
+                <scm.git>scm:git:https://github.com/searshomeservices-mulesoft</scm.git>
 
-				<!-- continuous integration -->
-				<ci.management.system></ci.management.system>
-				<ci.management.url></ci.management.url>
+                <!-- continuous integration -->
+                <ci.management.system></ci.management.system>
+                <ci.management.url></ci.management.url>
 
-				<!-- Mule Deploy properties -->
-				<mule.deploy.username></mule.deploy.username>
-				<mule.deploy.password></mule.deploy.password>
-				<mule.deploy.prefix>sears-</mule.deploy.prefix>
-				<mule.deploy.suffix></mule.deploy.suffix>
-				<mule.deploy.environment>Development, Test, Stage, Production</mule.deploy.environment>
-				<mule.deploy.workers>1</mule.deploy.workers>
-				<mule.deploy.workerType>MICRO</mule.deploy.workerType>
-				<mule.deploy.region>us-east-1</mule.deploy.region>				
-				<!-- mule app properties -->
-				<mule.env>local, dev, test, stage, prod</mule.env>
-				<mule.vault.key></mule.vault.key>
+                <!-- Mule Deploy properties -->
+                <mule.deploy.username></mule.deploy.username>
+                <mule.deploy.password></mule.deploy.password>
+                <mule.deploy.prefix>sears-</mule.deploy.prefix>
+                <mule.deploy.suffix></mule.deploy.suffix>
+                <mule.deploy.environment>Development, Test, Stage, Production</mule.deploy.environment>
+                <mule.deploy.workers>1</mule.deploy.workers>
+                <mule.deploy.workerType>MICRO</mule.deploy.workerType>
+                <mule.deploy.region>us-east-1</mule.deploy.region>
+                <!-- mule app properties -->
+                <mule.env>local, dev, test, stage, prod</mule.env>
+                <mule.vault.key></mule.vault.key>
 
-				<!-- artifactory repositories -->
-                <artifactory.repository.mule>http://10.232.81.57:8081/artifactory/mule-releases-ee/</artifactory.repository.mule>
-				<artifactory.repository.releases>http://10.232.81.57:8081/artifactory/shs-ipaas-releases</artifactory.repository.releases>
-				<artifactory.repository.snapshots>http://10.232.81.57:8081/artifactory/shs-ipaas-snapshots</artifactory.repository.snapshots>
+                <!-- artifactory repositories -->
+                <artifactory.repository.virtual>http://10.232.81.57:8081/artifactory/mule-shs-virtual/</artifactory.repository.virtual>
+                <artifactory.repository.releases>http://10.232.81.57:8081/artifactory/shs-ipaas-releases</artifactory.repository.releases>
+                <artifactory.repository.snapshots>http://10.232.81.57:8081/artifactory/shs-ipaas-snapshots</artifactory.repository.snapshots>
 
-				<!-- sears anypoint exchange repository -->
-				<anypoint.org.id>8322270b-c3fa-4f26-8cd0-fca3ee909d2d</anypoint.org.id>
-				<anypoint.exchange.repository>https://maven.anypoint.mulesoft.com/api/v1/organizations/${anypoint.org.id}/maven</anypoint.exchange.repository>
-			</properties>
+                <!-- sears anypoint exchange repository -->
+                <anypoint.org.id>8322270b-c3fa-4f26-8cd0-fca3ee909d2d</anypoint.org.id>
+                <anypoint.exchange.repository>https://maven.anypoint.mulesoft.com/api/v1/organizations/${anypoint.org.id}/maven</anypoint.exchange.repository>
+            </properties>
             <repositories>
                 <repository>
-                    <id>mulesoft-releases</id>
-                    <name>MuleSoft Releases Repository</name>
-                    <url>https://repository.mulesoft.org/releases/</url>
-                    <layout>default</layout>
-                </repository>
-                <repository>
-                    <id>MuleRepository</id>
-                    <name>MuleRepository</name>
-                    <url>${artifactory.repository.mule}</url>
+                    <id>Artifactory</id>
+                    <name>artifactory.repository.virtual</name>
+                    <url>${artifactory.repository.virtual}/</url>
                     <layout>default</layout>
                     <releases>
                         <enabled>true</enabled>
@@ -101,24 +94,30 @@
                 </repository>
                 <!-- Anypoint Exchange Repo -->
                 <repository>
-                    <id>anypoint-exchange</id>
-                    <name>Anypoint Exchange</name>
-                    <url>https://maven.anypoint.mulesoft.com/api/v1/maven</url>
+                    <id>Exchange</id>
+                    <name>anypoint.exchange.repository</name>
+                    <url>${anypoint.exchange.repository}</url>
                     <layout>default</layout>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
                 </repository>
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
-                    <id>mulesoft-releases</id>
-                    <name>mulesoft release repository</name>
-                    <url>https://repository.mulesoft.org/releases/</url>
+                    <id>Artifactory</id>
+                    <name>artifactory.repository.virtual</name>
+                    <url>${artifactory.repository.virtual}</url>
                     <layout>default</layout>
                     <releases>
-						<enabled>true</enabled>
-					</releases>
-					<snapshots>
-						<enabled>true</enabled>
-					</snapshots>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
                 </pluginRepository>
             </pluginRepositories>
         </profile>
