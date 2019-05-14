@@ -51,7 +51,7 @@
                 <sears.organization.url>https://www.searshomeservices.com</sears.organization.url>
 
                 <!-- scm -->
-                <scm.git>scm:git:https://github.com/searshomeservices-mulesoft</scm.git>
+                <scm.git>scm:git:https://github.com/searshomeservices</scm.git>
 
                 <!-- continuous integration -->
                 <ci.management.system></ci.management.system>
